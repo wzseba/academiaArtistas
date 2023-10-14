@@ -5,6 +5,7 @@
 *  Encapsulamiento
 *  Composicion y delegacion
 *  Jerarquia de clases
+*  Testing
 ### Enunciado
 ***
 Una Academia de arte admite dos tipo de artistas: Pintores y Escultores
@@ -18,4 +19,5 @@ Una Academia de arte admite dos tipo de artistas: Pintores y Escultores
 ## Tecnologias
 ***
 *  Java
+*  JUnit 5
 *  Id Eclipse Version: 2023-09 (4.29.0)
