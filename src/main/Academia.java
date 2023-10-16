@@ -1,9 +1,11 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Academia {
- 
+	
+	private static final double CUOTA_BASE = 50;
 	private int cantMaxDeArtitasAdmitidos;
 	private ArrayList<Artista> artistas;
 	
@@ -20,24 +22,21 @@ public class Academia {
 		}
 	}
 	
-	public static void cambiarCuotaBase(double nuevaCuotaBase) {
-		Artista.cuotaBase = nuevaCuotaBase;
-	}
-	
 	public double getTotalMensualDeCuotas() {
 		double total = 0;
 		
 		for (Artista artista : artistas) {
-			total += artista.getCuotaMensual();
+			total += artista.calcularCuotaMensual(CUOTA_BASE);
 		}
 		
 		return total;
 	}
 	
 	public void listarPlanillaDeArtistas() {
+		Collections.sort(artistas);
 		System.out.println("Planilla de Artistas:");
         for (Artista artista : artistas) {
-            System.out.println("Número de legajo: " + artista.getNumLegajo() + ", Cuota mensual: $" + artista.getCuotaMensual());
+            System.out.println(artista + " Cuota Mensual: $" + artista.calcularCuotaMensual(CUOTA_BASE));
         }
 	}
 
