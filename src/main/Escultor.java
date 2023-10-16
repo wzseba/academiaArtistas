@@ -7,8 +7,8 @@ public class Escultor extends Artista {
 	}
 
 	@Override
-	public double getCuotaMensual() {
-		return getCuotaBase() + (0.05 * getDiasAsitencia() * getCuotaBase()); 
+	public double getPlus() {
+		return 0.05;
 	}
 
 }

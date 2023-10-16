@@ -7,8 +7,8 @@ public class Pintor extends Artista {
 	}
 
 	@Override
-	public double getCuotaMensual() {
-		return getCuotaBase() + (0.10 * getDiasAsitencia() * getCuotaBase()); 
+	public double getPlus() {
+		return 0.1;
 	}
 
 }
