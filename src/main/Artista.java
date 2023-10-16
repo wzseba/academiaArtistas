@@ -1,31 +1,46 @@
 package main;
 
-public abstract class Artista {
+public abstract class Artista implements Comparable<Artista>{
 	
-	public static double cuotaBase = 100;
 	private int numeroLegajo;
 	private int diasDeAsistencia;
 	
 	public Artista(int numeroLegajo, int diasDeAsistencia) {
 		this.numeroLegajo = numeroLegajo;
-		this.diasDeAsistencia = diasDeAsistencia;
+		setDiasDeAsistencia(diasDeAsistencia);
+	}
+	
+	private void setDiasDeAsistencia(int dias) {
+		if(dias < 1 || dias > 3) {
+			throw new Error("Dias fuera de rango");
+		}
+		this.diasDeAsistencia = dias;
+	}
+	
+	public int getDiasDeAsistencia() {
+		return diasDeAsistencia;
 	}
 	
 	public int getNumLegajo() {
 		return this.numeroLegajo;
 	}
 	
-	public double getCuotaBase() {
-		return  cuotaBase;
+	public abstract double getPlus();
+	
+	public double calcularCuotaMensual(double cuotaBase) {
+		return cuotaBase + (cuotaBase * getPlus() * diasDeAsistencia);
 	}
 	
-	public int getDiasAsitencia() {
-		if(this.diasDeAsistencia <= 0 || this.diasDeAsistencia > 3) {
-			throw new Error("Dia incorrecto");
-		}
-		return this.diasDeAsistencia;	
+	
+	@Override
+	public String toString() {
+		return "Numero de legajo: " + getNumLegajo() + " Dias que asiste: " + getDiasDeAsistencia();
 	}
 	
-	public abstract double getCuotaMensual();
-
+	@Override
+	public int compareTo(Artista o) {
+		return Integer.compare(this.numeroLegajo, o.getNumLegajo());
+		
+	}
+	
 }
