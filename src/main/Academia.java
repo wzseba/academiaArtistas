@@ -22,6 +22,10 @@ public class Academia {
 		}
 	}
 	
+	public ArrayList<Artista> getArtistas() {
+		return artistas;
+	}
+
 	public double getTotalMensualDeCuotas() {
 		double total = 0;
 		
