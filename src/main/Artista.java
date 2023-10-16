@@ -42,5 +42,5 @@ public abstract class Artista implements Comparable<Artista>{
 		return Integer.compare(this.numeroLegajo, o.getNumLegajo());
 		
 	}
-	
+
 }
